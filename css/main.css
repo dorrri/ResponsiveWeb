@@ -336,7 +336,7 @@ header .main ul li a:active {
 /*                      滚动广告                      */
 
 .ad {
-    display: none;
+    
 }
 
 /*                      平台特点                      */
@@ -647,6 +647,41 @@ header .main ul li a:active {
     }
 }
 
+@media only screen and (max-width: 30em){
+    .product h2 em:first-child:before {
+        content: ' ';
+        display: block;
+    }
+
+    .product .pro-content .pro-item h3 em {
+        font-size: 2rem;
+        margin-right: 0;
+    }
+
+    .product .pro-content .pro-item .pro-info {
+        float: right;
+        width: 70%;
+        padding: 1rem 0;
+        border: none;
+    }
+
+    .product .pro-content .pro-item .pro-info p span {
+        font-size: 1.8rem;
+    }
+
+    .product .pro-content .pro-item .buy {
+        clear: both;
+        float: none;
+        width: 100%;
+        padding: 1rem 0 2rem;
+    }
+
+    .product .pro-content .pro-item .buy a {
+        margin-top: 0;
+        max-width: 26rem;
+    }
+}
+
 /*                      底部导航                      */
 
 .footer {
@@ -684,6 +719,37 @@ header .main ul li a:active {
 .footer-content ul li.title {
     font-size: 1.6rem;
     line-height: 3rem;
+}
+
+@media only screen and (max-width: 50em){
+    .footer-content .brand {
+        display: none;
+    }
+
+    .footer-content ul {
+        width: 20%;
+    }
+
+    .footer-content ul li {
+        font-size: 1.2rem;
+        line-height: 2rem;
+        text-align: center;
+    }
+
+    .footer-content ul li.title {
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .footer-content {
+        width: 98%;
+    }
+    .footer-content ul li.title {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
 }
 
 /***********************底部***********************/
