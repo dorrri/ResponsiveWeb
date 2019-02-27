@@ -1,0 +1,70 @@
+/*************  最外层窗口区域  *************/
+.hr-slide-window {
+    width: 100%;
+    /*overflow: hidden;*/
+    position: relative;
+    font-size: 0;
+}
+
+/*************  轮播图区域  *************/
+.hr-slide {
+    position: absolute;
+    z-index: 1; //计算宽度，位置坐标
+}
+
+/*************  图片区域  *************/
+.hr-slide-img {
+    display: inline-block;
+}
+
+/*************  左右箭头  *************/
+.hr-slide-array {
+    position: absolute;
+    display: none;
+    width: 5rem;
+    height: 5rem;
+    top: calc(50% - 2.5rem);
+    background-color: black;
+    opacity: .5;
+    font-size: 5rem;
+    text-align: center;
+    z-index: 5;
+}
+
+.hr-slide:hover .hr-slide-array {
+    display: block;
+}
+
+.hr-slide-array#pre {
+    left: 0;
+}
+
+.hr-slide-array#next {
+    right: 0;
+}
+
+.hr-slide-array:hover {
+    opacity: .7;
+}
+
+/*************  圆点导航  *************/
+.hr-slide-dots {
+    position: absolute;
+    bottom: 5%;
+    z-index: 4;
+}
+
+.hr-slide-dots span {
+    display: inline-block;
+    float: left;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 1rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.hr-slide-dots span.on {
+    background-color: white;
+}

@@ -336,8 +336,11 @@ header .main ul li a:active {
 /*                      滚动广告                      */
 
 .ad {
-    
+    width: 100%;
+    max-height: 45rem;
+    margin: 0.5rem auto;
 }
+
 
 /*                      平台特点                      */
 

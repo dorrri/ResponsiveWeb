@@ -1,3 +1,3 @@
 window.onload=function () {
-    new hrSlide('slide');
+    new hrSlide('slideWindow','slide');
 }
