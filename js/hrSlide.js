@@ -28,13 +28,14 @@
         init:function (options) {
             let opt=this.config(options,this.opts); //设置参数
             this.length=this.insNodes(); //复制第一张和最后一张图片，分别插入前后
+            this.lastIndex=this.length-2;
             this.setCSS(); //设置轮播图区域的CSS样式
             
             if (opt['arrays']===true){
-                this.insArrays();
+                this.arrayEle=this.insArrays();
             }
             if (opt['dots']===true){
-                this.insDots();
+                this.dotsEle=this.insDots();
             }
         },
         
@@ -99,6 +100,7 @@
             
             this.win.appendChild(pre);
             this.win.appendChild(next);
+            return [pre,next];
         },
         
         insDots:function () {
@@ -112,6 +114,73 @@
             dots.children[0].classList.add('on');  
             this.win.appendChild(dots);
             dots.style.cssText="left: calc(50% - "+dots.offsetWidth/2+"px);";
+            
+            return dots;
+        },
+        
+        animate:function (offset) {
+            this.animated=true;
+            let newLeft=this.slide.offsetLeft+offset;
+            let speed=offset/(this.time/this.interval);
+
+            function go() {
+                if((speed<0 && this.slide.offsetLeft>newLeft)||(speed>0 && this.slide.offsetLeft<newLeft)){
+                    this.slide.style.left=this.slide.offsetLeft+speed+"px";
+                    setTimeout(go,this.interval);
+                } else {
+                    this.animated=false;
+                    this.slide.style.left=newLeft+"px";
+                    
+                    let width=this.pic[0].offsetWidth;
+
+                    if (newLeft <= -1*width*(this.lastIndex+1)) {
+                        this.slide.style.left = -1*width+"px";
+                    } else if (newLeft >= 0) {
+                        this.slide.style.left = -1*width*this.lastIndex+"px"
+                    }
+                }
+            }
+            go(); 
+        },
+        
+        preClick:function () {
+            if (this.index===1){
+                this.index=lastIndex;
+            } else{
+                this.index-=1;
+            }
+
+            if (!this.animated){
+                this.animate(this.pic[0].offsetWidth);
+            }
+
+            this.showBtns();
+        },
+        
+        nextClick:function () {
+            if (this.index===this.lastIndex){
+                this.index=1;
+            } else{
+                this.index+=1;
+            }
+
+            if (!this.animated){
+                this.animate(this.pic[0].offsetWidth*(-1));
+            }
+
+            this.showBtns();
+        },
+        
+        showBtns:function () {
+            let dotsNode=this.dotsEle.children;
+            for(let i=0;i<dotsNode.length;i++){
+                let button=dotsNode[i];
+                if(button.className === "on"){
+                    button.className="";
+                    break;
+                }
+            }
+            dotsNode[this.index-1].className="on";
         }
     };
     

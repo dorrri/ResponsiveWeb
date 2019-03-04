@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <link rel="stylesheet" href="css/hrSlide.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="js/vendor/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css" type="text/css">
+    <!--<link rel="stylesheet" href="css/hrSlide.css" type="text/css">-->
+    
 </head>
 <body>
 <!--[if lte IE8]>
@@ -59,11 +62,34 @@
     <!--transaction end-->
     
     <section class="ad clearfix" >
-        <div class="ad-content" id="slideWindow">
-            <div class="ad-pic" id="slide">
-                <img src="img/ad001-l.png" alt="">
-                <img src="img/ad002-l.png" alt="">
-                <img src="img/ad003-l.png" alt="">
+        <!--<div class="ad-content" id="slideWindow">-->
+            <!--<div class="ad-pic" id="slide">-->
+                <!--<img src="img/ad001-l.png" alt="">-->
+                <!--<img src="img/ad002-l.png" alt="">-->
+                <!--<img src="img/ad003-l.png" alt="">-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="owl-carousel owl-theme">
+            <div>
+                <picture>
+                    <source srcset="img/ad001-l.png" media="(min-width:50em)">
+                    <source srcset="img/ad001-m.png" media="(min-width:30em)">
+                    <img src="img/ad001.png" alt="年度报告">
+                </picture>
+            </div>
+            <div>
+                <picture>
+                    <source srcset="img/ad002-l.png" media="(min-width:50em)">
+                    <source srcset="img/ad002-m.png" media="(min-width:30em)">
+                    <img src="img/ad002.png" alt="新年红包">
+                </picture>
+            </div>
+            <div>
+                <picture>
+                    <source srcset="img/ad003-l.png" media="(min-width:50em)">
+                    <source srcset="img/ad003-m.png" media="(min-width:30em)">
+                    <img src="img/ad003.png" alt="新手秘籍">
+                </picture>
             </div>
         </div>
     </section>
@@ -265,7 +291,10 @@
 </footer>
 <!--footer end-->
 
-<script src="js/hrSlide.js" type="text/javascript"></script>
+<!--<script src="js/hrSlide.js" type="text/javascript"></script>-->
+<script src="js/vendor/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="js/vendor/OwlCarousel2-2.3.4/dist/owl.carousel.min.js" type="text/javascript"></script>
+<script src="js/vendor/picturefill.min.js" type="text/javascript"></script>
 <script src="js/main.js" type="text/javascript"></script>
 
 </body>
